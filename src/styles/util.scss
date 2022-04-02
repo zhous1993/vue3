@@ -1,0 +1,140 @@
+@import "variables";
+.d-flex{
+    display: flex;
+}
+.d-flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.d-flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.d-flex-column-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.flex-1{
+    flex: 1;
+}
+
+//.jc-center
+@each $key, $value in $flex-jc {
+    .jc-#{$key}{
+        justify-content: $value;
+    }
+}
+
+//.al-center
+@each $key, $value in $flex-al {
+    .al-#{$key}{
+        align-items: $value;
+    }
+}
+
+// .fs-sm
+@each $key,$value in $fs-size {
+    .fs-#{$key}{
+        font-size: $fs-base+$value;
+    }
+}
+
+@each $typekey, $type in $spacing-type {
+    //.m-1
+    @each $sizekey, $size in $spacing-size {
+      .#{$typekey}-#{$sizekey} {
+        #{$type}: $size * $spacing-base-size;
+      }
+    }
+  
+    //.mx-1
+    @each $sizekey, $size in $spacing-size {
+      .#{$typekey}x-#{$sizekey} {
+        #{$type}-left: $size * $spacing-base-size;
+        #{$type}-right: $size * $spacing-base-size;
+      }
+  
+      .#{$typekey}y-#{$sizekey} {
+        #{$type}-top: $size * $spacing-base-size;
+        #{$type}-bottom: $size * $spacing-base-size;
+      }
+    }
+  
+    //.mt-1
+    @each $directionkey, $direction in $spacing-dir {
+      @each $sizekey, $size in $spacing-size {
+        .#{$typekey}#{$directionkey}-#{$sizekey} {
+          #{$type}-#{$direction}: $size * $spacing-base-size;
+        }
+      }
+    }
+  
+    .#{$typekey} {
+      #{$type}: 0;
+    }
+  }
+
+  // .text-left 对齐方式
+  @each $dirKey, $dir in $text-al {
+    .text-#{$dirKey}{
+      text-align: #{$dir};
+    }
+  }
+
+
+.pointer{
+  cursor: pointer;
+}
+
+.table-wrap{
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  
+  .tr{
+    display: grid;
+    grid-template-columns: 314px 180px 1fr;
+    &.rowspan{
+      grid-template-columns: 314px  1fr;
+    }
+    .inner-tr{
+      display: grid;
+      grid-template-columns: 180px  1fr;
+      &:not(:last-child){
+        border-bottom: 1px solid #ccc;
+      }
+      .td{
+        height: 34px;
+      }
+    }
+    .th{
+      height: 64px;
+      line-height: 64px;
+      color: $fs-dark-color;
+      font-weight: bold;
+    }
+    .td-row{
+      border-right: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .td{
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .th,.td{
+      text-align: center;
+      &:not(:last-child){
+        border-right: 1px solid #ccc;
+      }
+    }
+    &:not(:last-child){
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}

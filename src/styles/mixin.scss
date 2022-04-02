@@ -1,0 +1,13 @@
+@mixin icon($width:34px, $height:34px,$name:user) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    &:after {
+        width: $width;
+        height: $height;
+        content: '';
+        background: url('@/static/assets/icons/'+ $name + '.png') no-repeat;
+        background-size: 100% 100%;
+        display: inline-block;
+    }
+}

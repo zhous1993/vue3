@@ -1,0 +1,17 @@
+@import "./normalize.scss";
+@import "util";
+@import "vue-transition";
+html,body{
+  padding: 0;
+  margin: 0;
+  background: $bg-color;
+  font-size: $fs-base;
+  font-family: Microsoft YaHei;
+  color: $fs-color;
+}
+.banner-img {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
